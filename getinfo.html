@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #idea {
+            border: 5px solid black;
+            border-radius: 10px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>고객의 소리</h1>
+    <div>
+        <form action="" method="post" id="form1">
+            <p>아이디 : <input type="text" id="user-id"> <br>
+            구매번호 : <input type="text" id="item-number"> <br>
+            비밀번호 : <input type="password" id="user-pw"> <br>
+            제품을 평가해주세요<br><textarea name="" id="idea" cols="30" rows="5"></textarea><br>
+            <input type="submit" name="reset">
+            <input type="reset" name="reset"></p>
+        </form>
+    </div>
+    <h2>선호도조사입니다.</h2>
+    <form action="" method="post" id="form2">
+        <p>
+            성별 : <input type="radio" name="gender" value="man" id="">남성
+            <input type="radio" name="gender" value="woman" id="">여성 <br>
+            과일선택 : <input type="checkbox" name="fruit" value="apple" id="" checked>사과
+            <input type="checkbox" name="fruit" value="grape" id="" checked>포도
+            <input type="checkbox" name="fruit" value="orange" id="" checked>오렌지 <br>
+        </p>
+    </form>
+
+    <h1>버튼 나누기</h1>
+    <form action="" method="post">
+        <input type="button" value="눌러보세요" onclick="alert('안녕하세요?')"> <br>
+        <button type="button" id="luffy"><img src="./images/luffy.jpg" alt="luffy"></button>
+    </form>
+</body>
+</html>
