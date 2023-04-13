@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documnt</title>
+    <style>
+        h1:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>입력양식 추가 실습</h1>
+    <div>
+        <form action="" method="post">
+            <fieldset>
+                <legend>인적사항 조사</legend>
+            이름을 입력하세요 : <input type="text" required placeholder="예시>홍길동" name="" id="form1">
+            <br>
+            학번을 입력하세요 : <input type="text" name="" id="form2" placeholder="예시>10600" autofocus>
+            <br>
+            좋아하는 색을 고르세요 : <input type="color" name="" id="color">
+            </fieldset>
+            <br>
+            키를 입력하세요 : <input type="number" name="d" id="d" max="200" min="30" step="5" value="150">
+            <br>
+            좋아하는 숫자를 입력하세요 : <input type="range" max="10" min="1" step="1" value="1" id="range">
+            <br>
+            <select name="pw" id="">
+                <option value="1">동내 이름</option>
+                <option value="2">나의 초등학교 이름</option>
+                <option value="3">애완동물 이름</option>
+            </select>
+            <br>
+            <input list="browsers" name="brr">
+            <datalist id="browsers">
+                <option value="chrom">크롬</option>
+                <option value="edge">엣지</option>
+                <option value="safari">사파리</option>
+            </datalist>
+            <br>
+            <input list="lang" name="languages">
+            <datalist id="lang">
+                <option value="C">C언어</option>
+                <option value="Python">파이썬</option>
+                <option value="Java">자바</option>
+            </datalist>
+            <br>
+            <input type="file" accept="image/jpg,image/png" name="" id="">
+            <br>
+            <input type="submit" value="제출">
+        </form>
+    </div>
+</body>
+</html>
