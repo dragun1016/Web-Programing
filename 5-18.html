@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #name {
+            color: red;
+            border: 1px solid red;
+            border-radius: 10px;
+            transition: all 0.5s;
+            width: 50%;
+            height: 25px;
+            margin: 5px;
+        }
+        #name:hover {
+            background-color: bisque;
+        }
+        #email {
+            color: blue;
+            border: 1px solid blue;
+            border-radius: 10px;
+            transition: all 0.5s;
+            width: 50%;
+            height: 25px;
+            margin: 5px;
+        }
+        #email:hover {
+            background-color: bisque;
+        }
+        #subject {
+            width: 75%;
+            margin: auto;
+            margin: 5px;
+            border-radius: 7px;
+        }
+        #submit {
+            border: 2px solid gray;
+            border-radius: 7px;
+            background-color: rgb(153, 255, 0);
+            width: 20%;
+            height: 50px;
+            transition: all 0.5s;
+        }
+        #submit:hover {
+            background-color: rgb(200, 255, 118);
+            font-size: larger;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h2>상품 평</h2>
+    <p>받으신 상품을 평가해 주세요</p>
+    <div>
+        <form action="">
+            <label for="name">이름</label>
+            <br>
+            <input type="text" id="name" name="name" placeholder="name" required>
+            <br>
+            <label for="email">이메일</label>
+            <br>
+            <input type="text" id="email" name="email" placeholder="email" required>
+            <br>
+            <label for="subject">상품평</label>
+            <br>
+            <textarea name="" id="subject" cols="30" rows="10" placeholder="상품평"></textarea>
+            <br>
+            <input type="submit" value="제출" id="submit">
+        </form>
+    </div>
+</body>
+</html>
