@@ -1,0 +1,41 @@
+.container {
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+    position: relative;
+}
+.container > .item {
+    border: 3px solid rgb(181, 234, 255);
+    display: inline-flex;
+}
+.container > .item:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 45%;
+    right: 45%;
+    z-index: 1;
+}
+.container > .item:nth-child(2) {
+    width: 120px;
+    height: 100px;
+    background-color: rgb(147, 88, 255);
+    position: absolute;
+    top: 60%;
+    bottom: 50%;
+    left: 60%;
+    right: 50%;
+}
+.container > .item:nth-child(3) {
+    width: 100px;
+    height: 130px;
+    background-color: rgb(117, 255, 135);
+    position: absolute;
+    top: 50%;
+    bottom: 60%;
+    left: 50%;
+    right: 60%;
+}

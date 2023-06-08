@@ -1,0 +1,37 @@
+.wrap {
+    width: 700px;
+    height: 5000px;
+    background-color: pink;
+    position: relative;
+}
+.wrap > .container {
+    width: 500px;
+    height: 500px;
+    background-color: skyblue;
+    position: relative absolute;
+}
+.container > .item {
+    border: 1px solid red;
+}
+.wrap > .container > .item:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+.container > .item:nth-child(2) {
+    width: 120px;
+    height: 150px;
+    background-color: orange;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+.container > .item:nth-child(3) {
+    width: 70px;
+    height: 120px;
+    background-color: darkorange;
+    position: absolute;
+}
