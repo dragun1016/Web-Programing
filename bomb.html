@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>지뢰찾기</title>
+    <style>
+    #board {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-gap: 1px;
+    justify-content: center;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border: 1px solid #fff;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 텍스트를 수평, 수직 가운데 정렬로 변경 */
+}
+
+.mine {
+    background-color: #f00;
+    color: #fff;
+}
+
+.flag {
+    background-color: #ff69b4;
+    color: #fff;
+}
+
+.hidden {
+    background-color: #ccc;
+    color: #ccc;
+}
+
+    </style>
+</head>
+<body>
+    <div id="board"></div>
+</body>
+<script>
+    const board = document.getElementById('board');
+const numRows = 10; // 행 수
+const numCols = 10; // 열 수
+const numMines = 20; // 지뢰 개수
+
+let mines = [];
+
+function initializeBoard() {
+    // 게임 보드 초기화
+    for (let row = 0; row < numRows; row++) {
+        for (let col = 0; col < numCols; col++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell', 'hidden');
+            cell.dataset.row = row;
+            cell.dataset.col = col;
+            cell.addEventListener('click', handleCellClick);
+            cell.addEventListener('contextmenu', handleCellRightClick);
+            board.appendChild(cell);
+        }
+    }
+}
+
+function plantMines() {
+    // 무작위로 지뢰 배치
+    mines = [];
+    while (mines.length < numMines) {
+        const row = Math.floor(Math.random() * numRows);
+        const col = Math.floor(Math.random() * numCols);
+        if (!mines.some(mine => mine.row === row && mine.col === col)) {
+            mines.push({ row, col });
+        }
+    }
+}
+
+
+function handleCellClick(event) {
+    const cell = event.target;
+    if (cell.classList.contains('hidden')) {
+        const row = parseInt(cell.dataset.row);
+        const col = parseInt(cell.dataset.col);
+        if (mines.some(mine => mine.row === row && mine.col === col)) {
+            revealAllMines(); // 게임 오버 시 모든 지뢰 위치를 표시
+            alert('지뢰를 밟았습니다. 게임 오버!');
+            setTimeout(resetGame, 1000); // 게임 초기화 함수 호출
+        } else {
+            const numAdjacentMines = countAdjacentMines(row, col);
+            cell.classList.remove('hidden');
+            if (numAdjacentMines > 0) {
+                cell.textContent = numAdjacentMines;
+            } else {
+                revealEmptyCells(row, col);
+            }
+        }
+    }
+}
+function revealAllMines() {
+    // 모든 지뢰 위치를 표시
+    mines.forEach(mine => {
+        const cell = document.querySelector(`.cell[data-row="${mine.row}"][data-col="${mine.col}"]`);
+        cell.classList.remove('hidden');
+        cell.classList.add('mine');
+    });
+}
+
+function countAdjacentMines(row, col) {
+    // 주변 지뢰 개수 계산
+    let count = 0;
+    for (let dr = -1; dr <= 1; dr++) {
+        for (let dc = -1; dc <= 1; dc++) {
+            const r = row + dr;
+            const c = col + dc;
+            if (r >= 0 && r < numRows && c >= 0 && c < numCols) {
+                if (mines.some(mine => mine.row === r && mine.col === c)) {
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
+}
+
+function revealEmptyCells(row, col) {
+    const cellsToCheck = [{ row, col }];
+    const visited = new Set();
+
+    while (cellsToCheck.length > 0) {
+        const { row, col } = cellsToCheck.pop();
+        const cell = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
+        if (cell && cell.classList.contains('hidden')) {
+            cell.classList.remove('hidden');
+            const numAdjacentMines = countAdjacentMines(row, col);
+            if (numAdjacentMines === 0) {
+                cell.style.backgroundColor = "#00ff00"; // Change the background color to green
+                for (let dr = -1; dr <= 1; dr++) {
+                    for (let dc = -1; dc <= 1; dc++) {
+                        const r = row + dr;
+                        const c = col + dc;
+                        if (r >= 0 && r < numRows && c >= 0 && c < numCols) {
+                            const key = `${r}-${c}`;
+                            if (!visited.has(key)) {
+                                cellsToCheck.push({ row: r, col: c });
+                                visited.add(key);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function handleCellRightClick(event) {
+    event.preventDefault();
+    const cell = event.target;
+    if (cell.classList.contains('hidden')) {
+        cell.style.backgroundColor = "#ff69b4"; // 핑크색 배경색으로 변경
+    }
+}
+
+function revealMines() {
+    mines.forEach(mine => {
+        const cell = document.querySelector(`.cell[data-row="${mine.row}"][data-col="${mine.col}"]`);
+        cell.classList.remove('hidden');
+    });
+}
+
+function resetGame() {
+    // 게임을 초기화하는 함수
+    board.innerHTML = '';
+    plantMines();
+    initializeBoard();
+}
+
+initializeBoard();
+plantMines();
+
+</script>
+</html>
