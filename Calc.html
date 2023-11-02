@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #answer {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math Calc</h1>
+    <div class="container">
+        <input type="text" id="problem" value="12*2+20-30"><br>
+        <button onclick="calc()">정답 알아보기</button>
+    </div>
+    <div class="container">
+        <label for="answer">Answer: </label>
+        <input type="text" id="answer" readonly>
+    </div>
+</body>
+<script>
+    function calc() {
+        let value = document.getElementById("problem").value;
+        let answ = eval(value);
+        document.getElementById("answer").value = answ;
+    }
+</script>
+</html>
