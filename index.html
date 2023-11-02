@@ -5,10 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        button {
+            width: 35px;
+            height: 35px;
+            border-radius: 50px;
+            background-color: bisque;
+            border: none;
+        }
+        .row {
+            margin-bottom: 5px;
+        }
+        #buttons {
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
-    <h1>보고싶은 우리반 친구들아</h1>
-    <p>우리학교 낡았어 그리고 기울어져 있어 걱정은 사절할게 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 밥사줘 </p>
-    <img src="https://i.pinimg.com/280x280_RS/92/11/d3/9211d30dbf52e6c9754cc721bbd4a2f1.jpg" alt="">
+    <div id="container">
+        <div id="calc">
+            <div id="result">
+                <h1 id="real">0</h1>
+            </div>
+            <div id="buttons">
+                <div class="row">
+                    <button id="(" onclick="get()">(</button>
+                    <button id=")" onclick="get()">)</button>
+                    <button id="%" onclick="get()">%</button>
+                    <button id="ac" onclick="get()">AC</button>
+                </div>
+                <div class="row">
+                    <button id="7" onclick="get()">7</button>
+                    <button id="8" onclick="get()">8</button>
+                    <button id="9" onclick="get()">9</button>
+                    <button id="/" onclick="get()">/</button>
+                </div>
+                <div class="row">
+                    <button id="4" onclick="get()">4</button>
+                    <button id="5" onclick="get()">5</button>
+                    <button id="6" onclick="get()">6</button>
+                    <button id="x" onclick="get()">x</button>
+                </div>
+                <div class="row">
+                    <button id="1" onclick="get()">1</button>
+                    <button id="2" onclick="get()">2</button>
+                    <button id="3" onclick="get()">3</button>
+                    <button id="-" onclick="get()">-</button>
+                </div>
+                <div class="row">
+                    <button id="0" onclick="get()">0</button>
+                    <button id="." onclick="get()">.</button>
+                    <button id="=" onclick="calc()">=</button>
+                    <button id="+" onclick="get()">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    function get() {
+        let a = document.querySelectorAll("button").forEach(x => {
+            x.id
+        }).InnerHTML;
+        consolee.log(a);
+    }
+    function calc() {
+        let result = document.getElementById("real").InnerHTML;
+        result = "123"
+    }
+</script>
 </html>
