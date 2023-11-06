@@ -5,77 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
-        button {
-            width: 35px;
-            height: 35px;
-            border-radius: 50px;
-            background-color: bisque;
-            border: none;
-        }
-        .row {
-            margin-bottom: 5px;
-        }
-        #buttons {
-            background-color: white;
-        }
-    </style>
 </head>
 <body>
-    <div id="container">
-        <div id="calc">
-            <div id="result">
-                <h1 id="real">0</h1>
-            </div>
-            <div id="buttons">
-                <div class="row">
-                    <button id="(" onclick="get()">(</button>
-                    <button id=")" onclick="get()">)</button>
-                    <button id="%" onclick="get()">%</button>
-                    <button id="ac" onclick="get()">AC</button>
-                </div>
-                <div class="row">
-                    <button id="7" onclick="get()">7</button>
-                    <button id="8" onclick="get()">8</button>
-                    <button id="9" onclick="get()">9</button>
-                    <button id="/" onclick="get()">/</button>
-                </div>
-                <div class="row">
-                    <button id="4" onclick="get()">4</button>
-                    <button id="5" onclick="get()">5</button>
-                    <button id="6" onclick="get()">6</button>
-                    <button id="x" onclick="get()">x</button>
-                </div>
-                <div class="row">
-                    <button id="1" onclick="get()">1</button>
-                    <button id="2" onclick="get()">2</button>
-                    <button id="3" onclick="get()">3</button>
-                    <button id="-" onclick="get()">-</button>
-                </div>
-                <div class="row">
-                    <button id="0" onclick="get()">0</button>
-                    <button id="." onclick="get()">.</button>
-                    <button id="=" onclick="calc()">=</button>
-                    <button id="+" onclick="get()">+</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <p>1부터 100까지 정수를 입력하세요!</p>
+    <input type="text" id="input">
+    <button onclick="check()">확인</button>
+    <p id="result"></p>
 </body>
 <script>
-    function get() {
-        let a = document.querySelectorAll("button").forEach(x => {
-            x.id
-        }).InnerHTML;
-        consolee.log(a);
-    }
-    function calc() {
-        let result = document.getElementById("real").InnerHTML;
-        result = "123"
+    function check() {
+        const num = document.getElementById("input").value;
+        if(parseInt(num) >= 1 && parseInt(num) <= 100) {
+            document.getElementById("result").innerHTML = "입력값이 옳습니다."
+        }
+        else {
+            document.getElementById("result").innerHTML = "입력값이 옳지 않습니다."
+        }
     }
 </script>
 </html>

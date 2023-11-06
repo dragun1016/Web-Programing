@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkLength(elem, min, max) {
+            let s = elem.value;
+            if (s.length < min || s.length > max) {
+                alert('이름은 6~8 글자여야 합니다.');
+            }
+        }
+    </script>
+    <form>
+        이름(6-8 문자): <input type='text' id='name' />
+        <input type='button'
+            onclick="checkLength(document.getElementById('name'), 6, 8)"
+            value='확인' />
+    </form>
+</body>
+</html>
