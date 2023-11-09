@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Signal</title>
+    <style>
+        #traffic-signal {
+            border: 8px solid black;
+            padding: 10px 10px;
+            width: 50px;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #traffic-signal > div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid black;
+            margin-bottom: 5px;
+        }
+
+        #green {
+            background-color: white;
+            border-color: black;
+        }
+
+        #yellow {
+            background-color: white;
+            border-color: black;
+        }
+
+        #red {
+            background-color: white;
+            border-color: black;
+        }
+
+        #car {
+            background-color: pink;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            transition: left 6s; /* 움직임을 부드럽게 만들기 위한 트랜지션 설정 */
+            position: relative;
+            left: 0; /* 초기 위치 설정 */
+        }
+    </style>
+</head>
+<body onload="startTrafficSignal()">
+    <div id="traffic-signal">
+        <div id="green"></div>
+        <div id="yellow"></div>
+        <div id="red"></div>
+    </div>
+    <div id="line1"></div>
+    <div id="line2"></div>
+    <div id="car"></div>
+    <script>
+        function startTrafficSignal() {
+            var green = document.getElementById("green");
+            var red = document.getElementById("red");
+            var yellow = document.getElementById("yellow");
+            var car = document.getElementById("car");
+
+            setTimeout(function () {
+                green.style.backgroundColor = "green";
+                red.style.backgroundColor = "white";
+                yellow.style.backgroundColor = "white";
+                moveCar(); // 초록불일 때 car 이동
+            }, 0);
+
+            setTimeout(function () {
+                green.style.backgroundColor = "white";
+                red.style.backgroundColor = "red";
+                yellow.style.backgroundColor = "white";
+                stopCar(); // 노랑불일 때 car 정지
+            }, 6000);
+
+            setTimeout(function () {
+                red.style.backgroundColor = "white";
+                yellow.style.backgroundColor = "yellow";
+                green.style.backgroundColor = "white"; // 추가된 부분
+            }, 4500);
+        }
+
+        function moveCar() {
+            var car = document.getElementById("car");
+            car.style.left = "calc(100% - 150px)"; // 화면 오른쪽 끝으로 이동
+        }
+
+        function stopCar() {
+            var car = document.getElementById("car");
+        }
+    </script>
+</body>
+</html>
